@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int a = 11, x = 0, L = 0;
+char A[2] = {'H', 'i'};
+char B[19] = {'W', 'h', 'a', 't', ' ', 'i', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?'};
+char C[20] = {'M', 'y',' ', 'N', 'a', 'm', 'e', ' ', 'i', 's', ' '};
+int ID[10] = { 7, 6, 3, 2, 5, 8, 4};
+int *ptr, *D, id, student = 0;
+void attendance (int* ptr);
+ int main(){
+
+  printf("%s\n", A);
+  printf("%s\n", B);
+
+  printf("Enter Length of Your Name with space:\n");
+  scanf("%d",&x);
+  L = x+a+1;
+  printf("Enter Your Name:\n");
+
+    for (int i=a; i<L; i++){
+    scanf("%c",&C[i]);}
+    printf("%s\n",C);
+
+
+    printf("Enter Your ID:");
+    scanf("%d",&id);
+    for(int j=0; j<=6; j++){
+
+        if (id == ID[j] ){
+            printf("You are welcome!\n Your Id is : %d\n", id);
+            ptr = &ID[j];
+            attendance (ptr);
+            printf_s("After Collecting Attendance is:\n");
+            for (int k = 0; k < 6; k++){
+            printf("%d\t", ID[k]);
+   }
+    }
+    }
+    return 0;
+}
+
+     void attendance(int* ptr){
+
+          (*ptr) = 1 ;
+
+}
+
+
