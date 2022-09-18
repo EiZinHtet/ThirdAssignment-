@@ -1,0 +1,94 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+
+unsigned int ID_Number;
+      char username[30];
+      int password;
+      int amount;
+      int age;
+      char location[30];
+      int number = 0;
+      int c;
+      char string[1000];
+      int x=0;
+int main(){
+     FILE *fptr;
+     printf("Enter 1 To Insert Data:\nEnter 2 To Find Data:\nEnter 3 To update Data:");
+     scanf("%d", &x);
+
+
+switch (x){
+    case 1:
+        if((fptr = fopen("E:\\Programming\\fullScholar.txt","w")) == NULL){
+        puts("File cannot open!");
+        exit(1);
+    } else {
+      puts("Enter the ID_Number, user_name, password , amount , age , location");
+      puts ("Enter EOF to end input.");
+      printf(">:");
+      scanf("%d%s%d%d%d%s", &ID_Number, &username, &password , &amount , &age , &location);
+
+       while(!feof(stdin)){
+
+        fprintf(fptr,"%d\t%s\t%d\t%d\t%d\t%s\n", ID_Number, username, password , amount , age , location );
+        printf(">:");
+        scanf("%d%s%d%d%d%s",&ID_Number, &username, &password , &amount , &age , &location);
+       }
+       fclose(fptr);
+       break;}
+
+    case 2:
+
+ fptr = fopen ("E:\\Programming\\fullScholar.txt", "r");
+
+         if(fptr == NULL){
+
+    printf("File opening error");
+    exit(0);
+
+   }
+
+   while(1){
+  c = getc(fptr);
+
+   printf("Enter some number:");
+   scanf("%d", &number);
+    if ( number == c){
+    break;
+   }
+   else{
+       printf("%d\n",number);
+   if (number == ID_Number){
+   printf("We found %d",number);
+   }
+   break;
+   }}
+   fclose(fptr);
+   return 0;
+
+
+    case 3:
+   if((fptr = fopen("E:\\Programming\\fullScholar.txt","a")) == NULL){
+        puts("File cannot open!");
+        exit(1);
+    } else {
+      puts("You are now updating!!");
+      puts("Enter the ID_Number, user_name, password , amount , age , location");
+      puts ("Enter EOF to end input.");
+      printf(">:");
+      scanf("%d%s%d%d%d%s", &ID_Number, &username, &password , &amount , &age , &location);
+
+       while(!feof(stdin)){
+
+        fprintf(fptr,"%d\t%s\t%d\t%d\t%d\t%s\n", ID_Number, username, password , amount , age , location );
+        printf(">:");
+        scanf("%d%s%d%d%d%s",&ID_Number, &username, &password , &amount , &age , &location);
+       }
+
+       fclose(fptr);
+       break;}
+
+   fclose(fptr);
+   return 0;
+}}
